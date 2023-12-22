@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selina-deployment
+spec:
+  selector:
+    matchLabels:
+      app: selina
+  replicas: 3 # desired number of pods
+  template:
+    metadata:
+      labels:
+        app: selina
+      containers:
+      - name: selina
+        image: selina-dev # docker image
+        ports:
+        - containerPort: 3000 # port exposed by the container
